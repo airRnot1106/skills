@@ -58,6 +58,7 @@
           projectRootFile = "flake.nix";
           programs = {
             nixfmt.enable = true;
+            oxfmt.enable = true;
             ruff.enable = true;
           };
         }
