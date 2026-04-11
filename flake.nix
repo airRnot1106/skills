@@ -58,6 +58,7 @@
           projectRootFile = "flake.nix";
           programs = {
             nixfmt.enable = true;
+            ruff.enable = true;
           };
         }
       );
@@ -98,6 +99,7 @@
                 files = "^\\.github/workflows/.*\\.ya?ml$";
                 pass_filenames = true;
               };
+              ruff.enable = true;
               treefmt = {
                 enable = true;
                 package = self.formatter.${system};
