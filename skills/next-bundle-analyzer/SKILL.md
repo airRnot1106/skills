@@ -50,19 +50,20 @@ Replace `<skill-dir>` with the path to this skill's directory.
 
 The script outputs:
 
-| Section | What to look for |
-|---|---|
-| **Total bundle size** | Compressed size matters for network; raw size for parse time |
-| **Top output files** | Files >100KB (raw) are candidates for investigation |
-| **Top npm packages** | User-land packages unexpectedly large (not `next`/`react`) |
-| **Duplicate packages** | Same package at multiple versions = wasted bytes |
-| **Recommendations** | Auto-detected optimization opportunities |
+| Section                | What to look for                                             |
+| ---------------------- | ------------------------------------------------------------ |
+| **Total bundle size**  | Compressed size matters for network; raw size for parse time |
+| **Top output files**   | Files >100KB (raw) are candidates for investigation          |
+| **Top npm packages**   | User-land packages unexpectedly large (not `next`/`react`)   |
+| **Duplicate packages** | Same package at multiple versions = wasted bytes             |
+| **Recommendations**    | Auto-detected optimization opportunities                     |
 
 ### Step 4: Apply optimizations
 
 Based on results, common fixes (ref: `node_modules/next/dist/docs/01-app/02-guides/package-bundling.md`):
 
 **Large packages with many exports** → Add to `optimizePackageImports`:
+
 ```ts
 // next.config.ts
 experimental: {
@@ -75,6 +76,7 @@ experimental: {
 **Duplicate packages** → Run `npm dedupe` / `pnpm dedupe` / `yarn dedupe`.
 
 **Server-only packages leaking into client** → Add to `serverExternalPackages`:
+
 ```ts
 // next.config.ts
 serverExternalPackages: ['package-name'],
@@ -97,6 +99,7 @@ uv run <skill-dir>/scripts/analyze_bundle.py .next/diagnostics/analyze
 ## Interactive mode
 
 For visual treemap in the browser (no `--output`):
+
 ```bash
 npx next experimental-analyze
 # Opens http://localhost:4000
