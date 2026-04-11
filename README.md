@@ -13,3 +13,7 @@ My agent skills
 ```bash
 npx skills add airRnot1106/skills
 ```
+
+## LICENSE
+
+MIT
