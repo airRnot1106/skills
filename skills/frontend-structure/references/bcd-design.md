@@ -15,8 +15,10 @@
          Domain            Case         Base
 ```
 
-- **Base は必須**
+- **Base は必須**。**Base は複合語になり得る**（例: `ListSection`, `NotificationBanner`）
 - **Case は省略可**（状況を示す必要がない場合）
+- **Case は動詞・アクション系のみ**（Add, Edit, Post, Delete, Signin 等）。Detail / Overview / Summary のような描写的な語は Case ではなく Domain の一部として扱う
+- **Domain は複合語になり得る**（ProductOverview, ArticleDetail 等）。「何の」を日本語で捉えてそのまま英語語順に反映する
 - コンポーネント名は `Domain-Case-Base` の順序
 
 ## Domain の有無による配置
@@ -44,6 +46,32 @@
 - 放送者 → `Broadcaster`
 - イベントに参加している放送者 → `EventParticipatingBroadcaster`
 - 企画チームが開催しているイベントに参加している放送者 → `PlanningEventParticipatingBroadcaster`
+
+## Case 単語帳
+
+Case は「その UI が**何をする**状況か」を表す動詞・アクション系の語のみ使用する。
+
+> Detail / Overview / Summary / Preview などの描写語は Case ではなく Domain の一部。List は Base。
+
+| Case     | 意味             | 例                       |
+| -------- | ---------------- | ------------------------ |
+| Add      | 追加する         | AddButton                |
+| Create   | 新規作成する     | ArticleCreateForm        |
+| Edit     | 編集する         | CommentEditForm          |
+| Update   | 更新する         | ProfileUpdateForm        |
+| Delete   | 削除する         | PostDeleteButton         |
+| Post     | 投稿する         | ArticlePostForm          |
+| Submit   | 送信する         | ContactSubmitButton      |
+| Upload   | アップロードする | ImageUploadButton        |
+| Download | ダウンロードする | FileDownloadButton       |
+| Search   | 検索する         | ProductSearchForm        |
+| Filter   | 絞り込む         | EventFilterPanel         |
+| Select   | 選択する         | CategorySelectBox        |
+| Confirm  | 確認する         | OrderConfirmDialog       |
+| Cancel   | キャンセルする   | SubscriptionCancelButton |
+| Signin   | サインインする   | SigninButton, SigninForm |
+| Signup   | サインアップする | SignupButton, SignupForm |
+| Logout   | ログアウトする   | LogoutButton             |
 
 ## Base 単語帳
 

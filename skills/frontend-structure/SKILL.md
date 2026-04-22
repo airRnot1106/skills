@@ -68,6 +68,13 @@ user/
 - `src/components/` → `features/` を参照不可。Domain を持った時点で `features/` に移動すべき
 - 明名が正しければ循環参照は自然に発生しない
 
+**依存は後方一致（IS-A）ベース。前方修飾は依存を生まない。**
+
+後方一致によるネストと同じロジックで依存先を決定する。名前の後方部分がその entity の IS-A を表すため、依存先は後方部分が示す抽象ドメインになる。前方修飾はコンテキストの説明であり IS-A ではないため依存しない。
+
+- `event-schedule` の後方は `-schedule`（IS-A: schedule）→ `event` への依存は**発生しない**
+- `event-participating-broadcaster` の後方は `-broadcaster`（IS-A: broadcaster）→ `broadcaster` に依存可能
+
 ## 明名の原則
 
 すべてのルールの哲学的基盤。
