@@ -1,0 +1,26 @@
+{
+  "plugins": {},
+  "filters": {
+    "comments": true
+  },
+  "rules": {
+    "@textlint-ja/preset-ai-writing": true,
+    "preset-ai-words-ja": {
+      "no-short-topic-comma": {}
+    },
+    "preset-ja-spacing": true,
+    "preset-ja-technical-writing": {
+      "ja-no-mixed-period": {
+        "allowPeriodMarks": [":"]
+      },
+      "ja-no-weak-phrase": false,
+      "no-exclamation-question-mark": false,
+      "no-mix-dearu-desumasu": {
+        "preferInList": "である"
+      },
+      "sentence-length": {
+        "max": 200
+      }
+    }
+  }
+}
