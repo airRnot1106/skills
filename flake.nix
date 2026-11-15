@@ -2,6 +2,13 @@
   description = "airRnot's agent skills";
 
   inputs = {
+    agent-skills = {
+      url = "./nix/agent-skills";
+      inputs = {
+        flake-utils.follows = "flake-utils";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
     flake-utils.url = "github:numtide/flake-utils";
     git-hooks = {
       url = "github:cachix/git-hooks.nix";
@@ -78,10 +85,12 @@
       in
       {
         inherit formatter;
+        layat = inputs.agent-skills.layat.${system};
         checks = {
           inherit git-hooks-check;
         };
         devShells.default = pkgs.mkShellNoCC {
+          inputsFrom = [ inputs.agent-skills.devShells.${system}.default ];
           inherit (git-hooks-check) shellHook;
           packages = git-hooks-check.enabledPackages;
         };

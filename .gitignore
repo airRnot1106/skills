@@ -4,6 +4,9 @@
 # git-hooks.nix
 .pre-commit-config.yaml
 
+# layat
+/.claude/skills
+
 # nix build
 result
 result-*
