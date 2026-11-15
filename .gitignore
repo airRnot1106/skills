@@ -1,4 +1,0 @@
-.direnv
-.env*
-!.envrc
-.pre-commit-config.yaml
